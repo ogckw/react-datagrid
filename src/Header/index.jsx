@@ -128,7 +128,6 @@ module.exports = React.createClass({
                         }, this)
 
         if (props.columnGroups && props.columnGroups.length){
-
             cells = props.columnGroups.map(function(colGroup){
                 var cellProps = {}
                 var columns = []
@@ -239,6 +238,7 @@ module.exports = React.createClass({
                 className={className}
                 style={style}
                 text={text}
+                renderText={column.renderText}
                 header={true}
                 onMouseOut={this.handleMouseOut.bind(this, column)}
                 onMouseOver={this.handleMouseOver.bind(this, column)}
