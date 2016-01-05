@@ -78,10 +78,24 @@ There are a lot of props that can be configured for the datagrid. We'll try to c
  * `idProperty`: String - the name of the property where the id is found for each object in the data array
  * `columns`: Array - an array of columns that are going to be rendered in the grid
 
-  Each column should have a `name` property, and optionally a `title` property. If no `title` property is specified, a humanized version of the column `name` will be used.
+  Each column should have a `name` property, and optionally a `title` property. If no `title` property is specified, a humanized version of the column `name` will be used. You can also assign `renderText` function to render tht title.
 
   * `name`: String
   * `title`: String/ReactElement - a title to show in the header. If not specified, a humanized version of `name` will be used. Can be a string or anything that React can render, so you can customize it as you please.
+  * `renderText`: Function - if you want to render the title yourself, specify this property
+      ```jsx
+      // title 'titleText' is passed into this function
+      renderText: (title, column, rowIndex) => {
+        return (
+          <CheckBox
+            header
+            onCheckBoxClick={this.onCheckBoxClick}
+            checked={this.state.isHeaderChecked}
+          />
+        );
+      },
+      title: 'titleText'
+      ```
   * `render`: Function - if you want custom rendering, specify this property
 
     ```jsx
